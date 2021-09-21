@@ -9,5 +9,11 @@ class Ciudad(models.Model):
     provincia_idprovincia = models.ForeignKey(Provincia, models.DO_NOTHING, db_column='Provincia_idProvincia')  # Field name made lowercase.
 
     class Meta:
-        
+        verbose_name='Ciudad'
+        verbose_name_plural='Ciudades'
         db_table = 'ciudad'
+
+
+        def __str__(self):
+            return self.nombreciudad
+       

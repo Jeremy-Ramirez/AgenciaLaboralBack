@@ -7,5 +7,9 @@ class Provincia(models.Model):
     nombreprovincia = models.CharField(db_column='nombreProvincia', max_length=45, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        
+        verbose_name='Provincia'
+        verbose_name_plural='Provincias'
         db_table = 'provincia'
+
+        def __str__(self):
+            return self.nombreprovincia
