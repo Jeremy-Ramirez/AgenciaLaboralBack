@@ -19,8 +19,8 @@ class Usuario(models.Model):
     nombreusuario = models.CharField(db_column='nombreUsuario', max_length=45, blank=True, null=True)  # Field name made lowercase.
     contrasenia = models.CharField(max_length=16, blank=True, null=True)
     cedula = models.CharField(max_length=45, blank=True, null=True)
-    nombre = models.CharField(max_length=45, blank=True, null=True)
-    apellido = models.CharField(max_length=45, blank=True, null=True)
+    nombres = models.CharField(max_length=45, blank=True, null=True)
+    apellidos = models.CharField(max_length=45, blank=True, null=True)
     correo = models.CharField(max_length=45, blank=True, null=True)
     telefono = models.CharField(max_length=45, blank=True, null=True)
     direccion = models.CharField(max_length=45, blank=True, null=True)
@@ -30,6 +30,10 @@ class Usuario(models.Model):
     estadocivil_idestadocivil = models.ForeignKey(Estadocivil, models.DO_NOTHING, db_column='EstadoCivil_idEstadoCivil')  # Field name made lowercase.
     provincia_idprovincia = models.ForeignKey(Provincia, models.DO_NOTHING, db_column='Provincia_idProvincia')  # Field name made lowercase.
     ciudad_idciudad = models.ForeignKey(Ciudad, models.DO_NOTHING, db_column='Ciudad_idCiudad')  # Field name made lowercase.
+
+    def __str__(self):
+        txt = " Cédula: {0} / Nombres: {1} {2} / Correo: {3} / Teléfono: {4} / Dirección: {5}"
+        return txt.format(self.cedula , self.nombres , self.apellidos , self.correo , self.telefono, self.direccion) 
 
     class Meta:
         

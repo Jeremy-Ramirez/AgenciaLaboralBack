@@ -31,6 +31,10 @@ class Empresa(models.Model):
     sector_idsector = models.ForeignKey(Sector, models.DO_NOTHING, db_column='Sector_idSector')  # Field name made lowercase.
     tipoempresa_idtipoempresa = models.ForeignKey(Tipoempresa, models.DO_NOTHING, db_column='tipoEmpresa_idtipoEmpresa')  # Field name made lowercase.
 
+    def __str__(self):
+        txt = " Ruc/Cédula: {0} / Nombre Comercial: {1} "
+        return txt.format(self.ruc_cedula , self.nombrecomercial) 
+
     class Meta:
         
         db_table = 'empresa'
