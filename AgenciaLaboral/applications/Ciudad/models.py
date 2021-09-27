@@ -13,5 +13,11 @@ class Ciudad(models.Model):
         return txt.format(self.nombreciudad) 
         
     class Meta:
-        
+        verbose_name='Ciudad'
+        verbose_name_plural='Ciudades'
         db_table = 'ciudad'
+
+
+        def __str__(self):
+            return self.nombreciudad
+       

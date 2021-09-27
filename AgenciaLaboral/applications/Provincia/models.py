@@ -11,5 +11,9 @@ class Provincia(models.Model):
         return txt.format(self.provincia)
         
     class Meta:
-        
+        verbose_name='Provincia'
+        verbose_name_plural='Provincias'
         db_table = 'provincia'
+
+        def __str__(self):
+            return self.nombreprovincia
