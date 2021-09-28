@@ -9,6 +9,7 @@ from django.db import models
 from applications.Genero.models import Genero
 from applications.Rol.models import Rol
 from applications.Ciudad.models import Ciudad
+from applications.Tipodocumento.models import Tipodocumento
 from applications.Estadocivil.models import Estadocivil
 from applications.Aspirante.models import Aspirante
 from applications.Solicitud.models import Solicitud
@@ -18,9 +19,10 @@ class Usuario(models.Model):
     idusuario = models.AutoField(db_column='idUsuario', primary_key=True)  # Field name made lowercase.
     nombreusuario = models.CharField(db_column='nombreUsuario', max_length=45, blank=True, null=True)  # Field name made lowercase.
     contrasenia = models.CharField(max_length=16, blank=True, null=True)
-    cedula = models.CharField(max_length=45, blank=True, null=True)
-    nombres = models.CharField(max_length=45, blank=True, null=True)
-    apellidos = models.CharField(max_length=45, blank=True, null=True)
+    tipodocumento_idtipodocumento = models.ForeignKey(Tipodocumento, models.DO_NOTHING, db_column='tipodocumento_idtipodocumento',null=True)  # Field name made lowercase.
+    nodocumento = models.CharField(max_length=45, blank=True, null=True)
+    nombre = models.CharField(max_length=45, blank=True, null=True)
+    apellido = models.CharField(max_length=45, blank=True, null=True)
     correo = models.CharField(max_length=45, blank=True, null=True)
     telefono = models.CharField(max_length=45, blank=True, null=True)
     direccion = models.CharField(max_length=45, blank=True, null=True)
@@ -33,7 +35,8 @@ class Usuario(models.Model):
 
     def __str__(self):
         txt = " Cédula: {0} / Nombres: {1} {2} / Correo: {3} / Teléfono: {4} / Dirección: {5}"
-        return txt.format(self.cedula , self.nombres , self.apellidos , self.correo , self.telefono, self.direccion) 
+        return txt.format(self.cedula , self.nombre , self.apellido , self.correo , self.telefono, self.direccion) 
+
 
     class Meta:
         

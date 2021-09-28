@@ -1,7 +1,5 @@
 from django.shortcuts import render
-
-# Create your views here.
-
+from rest_framework.generics import get_object_or_404
 from rest_framework.views import APIView
 from .models import Provincia
 from .serializers import ProvinciaSerializer
@@ -13,8 +11,32 @@ from rest_framework.response import Response
 
 class ProvinciaApiView(APIView):
    
+  def get(self, request, pk=None):
+        if pk:
+            provincia = get_object_or_404(Provincia.objects.all(), pk=pk)
+            serializer = ProvinciaSerializer(provincia)
+            return Response({"provincia": serializer.data})
+        provincias = Provincia.objects.all()
+        serializer = ProvinciaSerializer(provincias, many=True)
+        return Response({"provincias": serializer.data})
 
-  def get(self,request, format=None):
-      provincias= Provincia.objects.all()
-      provincia_serializer=ProvinciaSerializer(provincias,many=True)
-      return Response(provincia_serializer.data)
+  def post(self, request):
+        provincia = request.data
+        serializer = ProvinciaSerializer(data=provincia)
+        if serializer.is_valid(raise_exception=True):
+            provincia_saved = serializer.save()
+        return Response({"success": "Provincia '{}' created successfully".format(provincia_saved.nombrecomercial)})
+  
+  def put(self, request, pk):
+        saved_provincia = get_object_or_404(Provincia.objects.all(), pk=pk)
+        data = request.data
+        serializer = ProvinciaSerializer(instance=saved_provincia, data=data, partial=True)
+
+        if serializer.is_valid(raise_exception=True):
+            provincia_saved = serializer.save()
+        return Response({"success": "Provincia '{}' updated successfully".format(provincia_saved.nombrecomercial)})
+  
+  def delete(self, request, pk):
+        provincia = get_object_or_404(Provincia.objects.all(), pk=pk)
+        provincia.delete()
+        return Response({"message": "Provincia with id `{}` has been deleted.".format(pk)},status=204)

@@ -21,7 +21,11 @@ urlpatterns = [
     path('api/',include('applications.Genero.urls')),
     path('api/',include('applications.Tipodocumento.urls')),
     path('api/',include('applications.Provincia.urls')),
-    path('api/',include('applications.Ciudad.urls'))
-    
+    path('api/',include('applications.Ciudad.urls')),
+    path('api/',include('applications.Tipopersona.urls')),
+    path('api/',include('applications.Actividadeconomica.urls')),
+    path('api/',include('applications.Ramaactividad.urls')),
+    path('api/',include('applications.Tipoempresa.urls')),
+    path('api/',include('applications.Empresa.urls'))
     
 ]

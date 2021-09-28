@@ -4,11 +4,11 @@ from django.db import models
 
 class Provincia(models.Model):
     idprovincia = models.IntegerField(db_column='idProvincia', primary_key=True)  # Field name made lowercase.
-    nombreprovincia = models.CharField(db_column='nombreProvincia', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    nombreprovincia = models.CharField(db_column='nombreProvincia', max_length=45, unique=True, null=True)  # Field name made lowercase.
 
     def __str__(self):
         txt = "{0}"
-        return txt.format(self.provincia)
+        return txt.format(self.nombreprovincia)
         
     class Meta:
         verbose_name='Provincia'

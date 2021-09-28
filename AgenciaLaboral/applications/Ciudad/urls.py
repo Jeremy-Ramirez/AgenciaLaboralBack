@@ -6,5 +6,5 @@ from .views import *
 urlpatterns = [
   
      path('ciudades/', views.CiudadApiView.as_view(), name='ciudades api'),
-   
+     path('ciudades/<int:pk>', CiudadApiView.as_view()),
 ]
