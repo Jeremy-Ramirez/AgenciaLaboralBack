@@ -18,14 +18,14 @@ class ProvinciaApiView(APIView):
             return Response(serializer.data)
         provincias = Provincia.objects.all()
         serializer = ProvinciaSerializer(provincias, many=True)
-        return Response( serializer.data)
+        return Response(serializer.data)
 
   def post(self, request):
         provincia = request.data
         serializer = ProvinciaSerializer(data=provincia)
         if serializer.is_valid(raise_exception=True):
             provincia_saved = serializer.save()
-        return Response({"success": "Provincia '{}' created successfully".format(provincia_saved.nombrecomercial)})
+        return Response({"success": "Provincia '{}' created successfully".format(provincia_saved.nombreprovincia)})
   
   def put(self, request, pk):
         saved_provincia = get_object_or_404(Provincia.objects.all(), pk=pk)
@@ -34,7 +34,7 @@ class ProvinciaApiView(APIView):
 
         if serializer.is_valid(raise_exception=True):
             provincia_saved = serializer.save()
-        return Response({"success": "Provincia '{}' updated successfully".format(provincia_saved.nombrecomercial)})
+        return Response({"success": "Provincia '{}' updated successfully".format(provincia_saved.nombreprovincia)})
   
   def delete(self, request, pk):
         provincia = get_object_or_404(Provincia.objects.all(), pk=pk)

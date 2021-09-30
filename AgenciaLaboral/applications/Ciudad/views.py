@@ -13,7 +13,7 @@ class CiudadApiView(APIView):
   def get(self, request, pk=None):
         if pk:
             ciudad = get_object_or_404(Ciudad.objects.all(), pk=pk)
-            serializer = CiudadSerializer(ciudad)
+            serializer = CiudadSerializer(ciudad, many=False)
             return Response(serializer.data)
         Ciudads = Ciudad.objects.all()
         serializer = CiudadSerializer(Ciudads, many=True)
