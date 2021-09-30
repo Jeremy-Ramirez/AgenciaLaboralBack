@@ -12,5 +12,9 @@ class Estado(models.Model):
         return txt.format(self.estado)
     
     class Meta:
-        
+        verbose_name='Estado'
+        verbose_name_plural='Estados'
         db_table = 'estado'
+        
+        def __str__(self):
+            return self.estado

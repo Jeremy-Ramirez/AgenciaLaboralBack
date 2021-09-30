@@ -12,10 +12,10 @@ class EmpresaApiView(APIView):
         if pk:
             empresa = get_object_or_404(Empresa.objects.all(), pk=pk)
             serializer = EmpresaSerializer(empresa)
-            return Response({"empresa": serializer.data})
+            return Response( serializer.data)
         empresas = Empresa.objects.all()
         serializer = EmpresaSerializer(empresas, many=True)
-        return Response({"empresas": serializer.data})
+        return Response(serializer.data)
 
   def post(self, request):
         empresa = request.data

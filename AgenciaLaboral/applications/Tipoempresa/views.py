@@ -15,10 +15,10 @@ class TipoempresaApiView(APIView):
         if pk:
             tipoempresa = get_object_or_404(Tipoempresa.objects.all(), pk=pk)
             serializer = TipoempresaSerializer(tipoempresa)
-            return Response({"tipoempresa": serializer.data})
+            return Response(serializer.data)
         tipoempresas = Tipoempresa.objects.all()
         serializer = TipoempresaSerializer(tipoempresas, many=True)
-        return Response({"tipoempresas": serializer.data})
+        return Response(serializer.data)
 
   def post(self, request):
         tipoempresa = request.data

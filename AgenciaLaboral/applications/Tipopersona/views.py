@@ -16,10 +16,10 @@ class TipopersonaApiView(APIView):
         if pk:
             tipopersona = get_object_or_404(Tipopersona.objects.all(), pk=pk)
             serializer = TipopersonaSerializer(tipopersona)
-            return Response({"tipopersona": serializer.data})
-        tipopersonas = Tipoempresa.objects.all()
+            return Response(serializer.data)
+        tipopersonas = Tipopersona.objects.all()
         serializer = TipopersonaSerializer(tipopersonas, many=True)
-        return Response({"tipopersonas": serializer.data})
+        return Response(serializer.data)
 
   def post(self, request):
         tipopersona = request.data

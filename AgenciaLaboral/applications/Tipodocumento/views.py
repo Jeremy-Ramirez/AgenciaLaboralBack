@@ -16,10 +16,10 @@ class TipodocumentoApiView(APIView):
         if pk:
             tipodocumento = get_object_or_404(Tipodocumento.objects.all(), pk=pk)
             serializer = TipodocumentoSerializer(tipodocumento)
-            return Response({"tipodocumento": serializer.data})
+            return Response(serializer.data)
         tipodocumentos = Tipodocumento.objects.all()
         serializer = TipodocumentoSerializer(tipodocumentos, many=True)
-        return Response({"tipodocumentos": serializer.data})
+        return Response(serializer.data)
 
   def post(self, request):
         tipodocumento = request.data

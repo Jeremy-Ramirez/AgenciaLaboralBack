@@ -26,6 +26,10 @@ urlpatterns = [
     path('api/',include('applications.Actividadeconomica.urls')),
     path('api/',include('applications.Ramaactividad.urls')),
     path('api/',include('applications.Tipoempresa.urls')),
-    path('api/',include('applications.Empresa.urls'))
+    path('api/',include('applications.Sector.urls')),    
+    path('api/',include('applications.Empresa.urls')),  
+    path('api/',include('applications.Solicitud.urls')),    
+    path('api/',include('applications.Tiposolicitud.urls')),      
+    path('api/',include('applications.Estado.urls'))
     
 ]

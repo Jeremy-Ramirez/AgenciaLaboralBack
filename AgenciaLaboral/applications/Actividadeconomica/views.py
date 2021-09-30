@@ -12,10 +12,10 @@ class ActividadeconomicaApiView(APIView):
         if pk:
             actividadeconomica = get_object_or_404(Actividadeconomica.objects.all(), pk=pk)
             serializer = ActividadeconomicaSerializer(actividadeconomica)
-            return Response({"actividadeconomica": serializer.data})
+            return Response(serializer.data)
         actividadeconomicas = Actividadeconomica.objects.all()
         serializer = ActividadeconomicaSerializer(actividadeconomicas, many=True)
-        return Response({"actividadeconomicas": serializer.data})
+        return Response(serializer.data)
 
   def post(self, request):
         actividadeconomica = request.data

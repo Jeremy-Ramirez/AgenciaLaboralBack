@@ -20,10 +20,10 @@ class RamaactividadApiView(APIView):
         if pk:
             ramaactividad = get_object_or_404(Ramaactividad.objects.all(), pk=pk)
             serializer = RamaactividadSerializer(ramaactividad)
-            return Response({"ramaactividad": serializer.data})
+            return Response(serializer.data)
         ramaactividads = Ramaactividad.objects.all()
         serializer = RamaactividadSerializer(ramaactividads, many=True)
-        return Response({"ramaactividads": serializer.data})
+        return Response( serializer.data)
 
   def post(self, request):
         ramaactividad = request.data

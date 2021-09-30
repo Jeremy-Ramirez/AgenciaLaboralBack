@@ -16,10 +16,10 @@ class SectorApiView(APIView):
         if pk:
             sector = get_object_or_404(Sector.objects.all(), pk=pk)
             serializer = SectorSerializer(sector)
-            return Response({"sector": serializer.data})
+            return Response(serializer.data)
         sectors = Sector.objects.all()
         serializer = SectorSerializer(sectors, many=True)
-        return Response({"sectors": serializer.data})
+        return Response(serializer.data)
 
   def post(self, request):
         sector = request.data

@@ -18,6 +18,17 @@ class Solicitud(models.Model):
     tiposolicitud_idtiposolicitud = models.ForeignKey(Tiposolicitud, models.DO_NOTHING, db_column='TipoSolicitud_idTipoSolicitud')  # Field name made lowercase.
     estado_idestado = models.ForeignKey(Estado, models.DO_NOTHING, db_column='Estado_idEstado')  # Field name made lowercase.
 
+      
+    def __str__(self):
+        txt = " Profesion: {0} / Cargo: {1} "
+        return txt.format(self.profesion , self.cargo) 
+
     class Meta:
-        
+        verbose_name='Solicitud'
+        verbose_name_plural='Solicituds'
         db_table = 'solicitud'
+
+        def __str__(self):
+            txt = " Profesion: {0} / Cargo: {1} "
+            return txt.format(self.profesion , self.cargo) 
+        

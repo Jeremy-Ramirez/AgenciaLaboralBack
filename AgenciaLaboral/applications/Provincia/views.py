@@ -15,10 +15,10 @@ class ProvinciaApiView(APIView):
         if pk:
             provincia = get_object_or_404(Provincia.objects.all(), pk=pk)
             serializer = ProvinciaSerializer(provincia)
-            return Response({"provincia": serializer.data})
+            return Response(serializer.data)
         provincias = Provincia.objects.all()
         serializer = ProvinciaSerializer(provincias, many=True)
-        return Response({"provincias": serializer.data})
+        return Response( serializer.data)
 
   def post(self, request):
         provincia = request.data

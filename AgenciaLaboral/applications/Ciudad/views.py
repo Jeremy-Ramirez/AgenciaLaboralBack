@@ -14,10 +14,10 @@ class CiudadApiView(APIView):
         if pk:
             ciudad = get_object_or_404(Ciudad.objects.all(), pk=pk)
             serializer = CiudadSerializer(ciudad)
-            return Response({"ciudad": serializer.data})
+            return Response(serializer.data)
         Ciudads = Ciudad.objects.all()
         serializer = CiudadSerializer(Ciudads, many=True)
-        return Response({"Ciudads": serializer.data})
+        return Response(serializer.data)
 
   def post(self, request):
         ciudad = request.data
