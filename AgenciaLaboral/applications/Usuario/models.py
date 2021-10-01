@@ -26,7 +26,7 @@ class Usuario(models.Model):
 
     def __str__(self):
         txt = " Cédula: {0} / Nombres: {1} {2} / Correo: {3} / Teléfono: {4} / Dirección: {5}"
-        return txt.format(self.cedula , self.nombre , self.apellido , self.correo , self.telefono, self.direccion) 
+        return txt.format(self.nodocumento , self.nombre , self.apellido , self.correo , self.telefono, self.direccion) 
 
 
     class Meta:
