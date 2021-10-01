@@ -24,12 +24,12 @@ class Empresa(models.Model):
     correoelectronico = models.CharField(db_column='correoElectronico', max_length=45, unique=True, null=True)  # Field name made lowercase.
     contrasenia = models.CharField(max_length=16, blank=True, null=True)    
     paginaweb = models.CharField(db_column='paginaWeb', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    tipodocumento_idtipodocumento = models.ForeignKey(Tipodocumento, models.DO_NOTHING, db_column='tipoDocumento_idtipoDocumento')  # Field name made lowercase.
-    tipopersona_idtipopersona = models.ForeignKey(Tipopersona, models.DO_NOTHING, db_column='tipoPersona_idtipoPersona')  # Field name made lowercase.
-    actividadeconomica_idactividadeconomica = models.ForeignKey(Actividadeconomica, models.DO_NOTHING, db_column='actividadEconomica_idactividadEconomica')  # Field name made lowercase.
-    ramaactividad_idramaactividad = models.ForeignKey(Ramaactividad, models.DO_NOTHING, db_column='ramaActividad_idramaActividad')  # Field name made lowercase.
-    sector_idsector = models.ForeignKey(Sector, models.DO_NOTHING, db_column='sector_idSector')  # Field name made lowercase.
-    tipoempresa_idtipoempresa = models.ForeignKey(Tipoempresa, models.DO_NOTHING, db_column='tipoEmpresa_idtipoEmpresa')  # Field name made lowercase.
+    tipodocumento_idtipodocumento = models.ForeignKey(Tipodocumento, models.DO_NOTHING, db_column='tipoDocumento_idtipoDocumento', null = True)  # Field name made lowercase.
+    tipopersona_idtipopersona = models.ForeignKey(Tipopersona, models.DO_NOTHING, db_column='tipoPersona_idtipoPersona', null = True)  # Field name made lowercase.
+    actividadeconomica_idactividadeconomica = models.ForeignKey(Actividadeconomica, models.DO_NOTHING, db_column='actividadEconomica_idactividadEconomica', null = True)  # Field name made lowercase.
+    ramaactividad_idramaactividad = models.ForeignKey(Ramaactividad, models.DO_NOTHING, db_column='ramaActividad_idramaActividad', null = True)  # Field name made lowercase.
+    sector_idsector = models.ForeignKey(Sector, models.DO_NOTHING, db_column='sector_idSector', null = True)  # Field name made lowercase.
+    tipoempresa_idtipoempresa = models.ForeignKey(Tipoempresa, models.DO_NOTHING, db_column='tipoEmpresa_idtipoEmpresa', null = True)  # Field name made lowercase.
     provincia_idprovincia = models.ForeignKey(Provincia, models.DO_NOTHING, db_column='provincia_idProvincia', null=True)  # Field name made lowercase.
     ciudad_idciudad = models.ForeignKey(Ciudad, models.DO_NOTHING, db_column='ciudad_idCiudad', null=True)  # Field name made lowercase.
  

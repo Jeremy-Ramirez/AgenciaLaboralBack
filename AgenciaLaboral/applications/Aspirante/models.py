@@ -1,8 +1,6 @@
 from django.db import models
 
 from applications.Profesiones.models import Profesiones
-from applications.Aspirantessolicitados.models import Aspirantessolicitados
-from applications.Solicitud.models import Solicitud
 
 # Create your models here.
 class Aspirante(models.Model):

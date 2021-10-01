@@ -4,8 +4,6 @@ from applications.Rol.models import Rol
 from applications.Ciudad.models import Ciudad
 from applications.Tipodocumento.models import Tipodocumento
 from applications.Estadocivil.models import Estadocivil
-from applications.Aspirante.models import Aspirante
-from applications.Solicitud.models import Solicitud
 from applications.Provincia.models import Provincia
 
 class Usuario(models.Model):
