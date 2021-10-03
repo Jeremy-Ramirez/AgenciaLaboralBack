@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Profesiones(models.Model):
-    idprofesiones = models.IntegerField(db_column='idProfesiones', primary_key=True)  # Field name made lowercase.
+    idprofesiones = models.AutoField(db_column='idProfesiones', primary_key=True)  # Field name made lowercase.
     profesion = models.CharField(max_length=45, blank=True, null=True)
 
 

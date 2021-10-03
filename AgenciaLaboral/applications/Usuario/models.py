@@ -5,6 +5,7 @@ from applications.Ciudad.models import Ciudad
 from applications.Tipodocumento.models import Tipodocumento
 from applications.Estadocivil.models import Estadocivil
 from applications.Provincia.models import Provincia
+from applications.Estado.models import Estado
 
 class Usuario(models.Model):
     idusuario = models.AutoField(db_column='idUsuario', primary_key=True)  # Field name made lowercase.
@@ -17,7 +18,7 @@ class Usuario(models.Model):
     correo = models.CharField(max_length=45, blank=True, null=True)
     telefono = models.CharField(max_length=45, blank=True, null=True)
     direccion = models.CharField(max_length=45, blank=True, null=True)
-    estadocuenta = models.CharField(db_column='estadoCuenta', max_length=45, blank=True, null=True)  # Field name made lowercase.
+    estado_idestado = models.ForeignKey(Estado, models.DO_NOTHING, db_column='estadoCuenta')   # Field name made lowercase.
     genero_idgenero = models.ForeignKey(Genero, models.DO_NOTHING, db_column='Genero_idGenero')  # Field name made lowercase.
     rol_idrol = models.ForeignKey(Rol, models.DO_NOTHING, db_column='Rol_idRol')  # Field name made lowercase.
     estadocivil_idestadocivil = models.ForeignKey(Estadocivil, models.DO_NOTHING, db_column='EstadoCivil_idEstadoCivil')  # Field name made lowercase.
@@ -25,7 +26,7 @@ class Usuario(models.Model):
     ciudad_idciudad = models.ForeignKey(Ciudad, models.DO_NOTHING, db_column='Ciudad_idCiudad')  # Field name made lowercase.
 
     def __str__(self):
-        txt = " Cédula: {0} / Nombres: {1} {2} / Correo: {3} / Teléfono: {4} / Dirección: {5}"
+        txt = " No.documento: {0} / Nombres: {1} {2} / Correo: {3} / Teléfono: {4} / Dirección: {5}"
         return txt.format(self.nodocumento , self.nombre , self.apellido , self.correo , self.telefono, self.direccion) 
 
 

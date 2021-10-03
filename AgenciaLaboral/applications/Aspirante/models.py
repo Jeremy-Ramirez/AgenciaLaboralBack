@@ -5,7 +5,7 @@ from applications.Usuario.models import Usuario
 
 # Create your models here.
 class Aspirante(models.Model):
-    idaspirante = models.IntegerField(db_column='idAspirante', primary_key=True)  # Field name made lowercase.
+    idaspirante = models.AutoField(db_column='idAspirante', primary_key=True)  # Field name made lowercase.
     numerohijos = models.IntegerField(db_column='numeroHijos', blank=True, null=True)  # Field name made lowercase.
     experiencialaboral = models.CharField(db_column='experienciaLaboral', max_length=45, blank=True, null=True)  # Field name made lowercase.
     campolaboral = models.CharField(db_column='campoLaboral', max_length=45, blank=True, null=True)  # Field name made lowercase.
