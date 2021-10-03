@@ -18,12 +18,12 @@ class Usuario(models.Model):
     correo = models.CharField(max_length=45, blank=True, null=True)
     telefono = models.CharField(max_length=45, blank=True, null=True)
     direccion = models.CharField(max_length=45, blank=True, null=True)
-    estado_idestado = models.ForeignKey(Estado, models.DO_NOTHING, db_column='estadoCuenta')   # Field name made lowercase.
-    genero_idgenero = models.ForeignKey(Genero, models.DO_NOTHING, db_column='Genero_idGenero')  # Field name made lowercase.
+    estado_idestado = models.ForeignKey(Estado, models.DO_NOTHING, db_column='estadoCuenta', null=True)   # Field name made lowercase.
+    genero_idgenero = models.ForeignKey(Genero, models.DO_NOTHING, db_column='Genero_idGenero', null=True)  # Field name made lowercase.
     rol_idrol = models.ForeignKey(Rol, models.DO_NOTHING, db_column='Rol_idRol')  # Field name made lowercase.
-    estadocivil_idestadocivil = models.ForeignKey(Estadocivil, models.DO_NOTHING, db_column='EstadoCivil_idEstadoCivil')  # Field name made lowercase.
-    provincia_idprovincia = models.ForeignKey(Provincia, models.DO_NOTHING, db_column='Provincia_idProvincia')  # Field name made lowercase.
-    ciudad_idciudad = models.ForeignKey(Ciudad, models.DO_NOTHING, db_column='Ciudad_idCiudad')  # Field name made lowercase.
+    estadocivil_idestadocivil = models.ForeignKey(Estadocivil, models.DO_NOTHING, db_column='EstadoCivil_idEstadoCivil', null=True)  # Field name made lowercase.
+    provincia_idprovincia = models.ForeignKey(Provincia, models.DO_NOTHING, db_column='Provincia_idProvincia', null=True)  # Field name made lowercase.
+    ciudad_idciudad = models.ForeignKey(Ciudad, models.DO_NOTHING, db_column='Ciudad_idCiudad', null=True)  # Field name made lowercase.
 
     def __str__(self):
         txt = " No.documento: {0} / Nombres: {1} {2} / Correo: {3} / Teléfono: {4} / Dirección: {5}"

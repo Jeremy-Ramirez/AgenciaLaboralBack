@@ -12,7 +12,7 @@ ALLOWED_HOSTS = []
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'agenciadb2',
+        'NAME': 'agenciadb',
         'USER':'root',
         'PASSWORD':'admin'
     }

@@ -8,8 +8,12 @@ class Estadocivil(models.Model):
 
     def __str__(self):
         txt = "{0}"
-        return txt.format(self.estado_civil)
+        return txt.format(self.estadocivil)
         
     class Meta:
-        
+        verbose_name='Estadocivil'
+        verbose_name_plural='Estadocivils'
         db_table = 'estadocivil'
+        
+        def __str__(self):
+            return self.estadocivil
