@@ -10,7 +10,7 @@ from applications.Provincia.models import Provincia
 
 
 class Empresa(models.Model):
-    idempresa = models.IntegerField(db_column='idEmpresa', primary_key=True)  # Field name made lowercase.
+    idempresa = models.AutoField(db_column='idEmpresa', primary_key=True)  # Field name made lowercase.
     ruc_cedula = models.CharField(db_column='ruc/cedula', max_length=45, unique=True, null=True)  # Field renamed to remove unsuitable characters.
     nombrecomercial = models.CharField(db_column='nombreComercial', max_length=45, blank=True, null=True)  # Field name made lowercase.
     razonsocial = models.CharField(db_column='razonSocial', max_length=45, blank=True, null=True)  # Field name made lowercase.
