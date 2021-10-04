@@ -3,6 +3,8 @@ from django.db import models
 from applications.Profesiones.models import Profesiones
 from applications.Usuario.models import Usuario
 
+def nameFile(instance, filename):
+    return '/'.join(['videos', str(instance.profesiones_idprofesiones.profesion), filename])
 # Create your models here.
 class Aspirante(models.Model):
     idaspirante = models.AutoField(db_column='idAspirante', primary_key=True)  # Field name made lowercase.
@@ -10,7 +12,7 @@ class Aspirante(models.Model):
     experiencialaboral = models.CharField(db_column='experienciaLaboral', max_length=45, blank=True, null=True)  # Field name made lowercase.
     campolaboral = models.CharField(db_column='campoLaboral', max_length=45, blank=True, null=True)  # Field name made lowercase.
     experticia = models.CharField(max_length=45, blank=True, null=True)
-    videopresentacion = models.FileField(db_column='videoPresentacion', blank=True, null=True)  # Field name made lowercase.
+    videopresentacion = models.FileField(blank=True, upload_to=nameFile, null=True)  # Field name made lowercase.
     aniosexperiencia = models.IntegerField(db_column='aniosExperiencia', blank=True, null=True)  # Field name made lowercase.
     fechanacimiento = models.DateField(db_column='fechaNacimiento', blank=True, null=True)  # Field name made lowercase.
     posibilidadviajar = models.IntegerField(db_column='posibilidadViajar', blank=True, null=True)  # Field name made lowercase.

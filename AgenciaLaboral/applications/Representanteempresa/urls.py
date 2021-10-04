@@ -6,5 +6,6 @@ from .views import *
 urlpatterns = [
   
      path('representantes/', views.RepresentanteEmpresaApiView.as_view(), name='representantes api'),
-   
+     path('representantes/<int:pk>', views.RepresentanteEmpresaApiView.as_view()),
+
 ]
