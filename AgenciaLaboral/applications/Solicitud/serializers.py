@@ -24,7 +24,7 @@ class SolicitudSerializer(serializers.ModelSerializer):
         instance.descripcioncargo = validated_data.get('descripcioncargo', instance.descripcioncargo)
         instance.tiposolicitud_idtiposolicitud = validated_data.get('tiposolicitud_idtiposolicitud', instance.tiposolicitud_idtiposolicitud)
         instance.estado_idestado = validated_data.get('estado_idestado', instance.estado_idestado)
-        instance.empresa_idempresa = validated_data.get('empresa_idempresa', instance.empresa_idempresa)
+        instance.representante_idrepresentante = validated_data.get('representante_idrepresentante', instance.representante_idrepresentante)
         instance.provincia_idprovincia = validated_data.get('provincia_idprovincia', instance.provincia_idprovincia)
         instance.ciudad_idciudad = validated_data.get('ciudad_idciudad', instance.ciudad_idciudad)
         
