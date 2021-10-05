@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Actividadeconomica(models.Model):
-    idactividadeconomica = models.IntegerField(db_column='idactividadEconomica', primary_key=True)  # Field name made lowercase.
+    idactividadeconomica = models.AutoField(db_column='idactividadEconomica', primary_key=True)  # Field name made lowercase.
     descripcion = models.CharField(max_length=45, unique=True, null=True)
     
     def __str__(self):

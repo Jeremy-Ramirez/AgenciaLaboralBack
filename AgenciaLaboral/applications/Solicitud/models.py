@@ -6,7 +6,7 @@ from applications.Representanteempresa.models import Representanteempresa
 from applications.Provincia.models import Provincia
 #falta ciudad, provincia, idempresa, idusuario
 class Solicitud(models.Model):
-    idsolicitud = models.IntegerField(db_column='idSolicitud', primary_key=True)  # Field name made lowercase.
+    idsolicitud = models.AutoField(db_column='idSolicitud', primary_key=True)  # Field name made lowercase.
     profesion = models.CharField(max_length=45, blank=True, null=True)
     aniosexperiencia = models.IntegerField(db_column='aniosExperiencia', blank=True, null=True)  # Field name made lowercase.
     rangoedad = models.CharField(db_column='rangoEdad', max_length=45, blank=True, null=True)  # Field name made lowercase.

@@ -4,7 +4,7 @@ from django.db import models
 
 
 class Ramaactividad(models.Model):
-    idramaactividad = models.IntegerField(db_column='idramaActividad', primary_key=True)  # Field name made lowercase.
+    idramaactividad = models.AutoField(db_column='idramaActividad', primary_key=True)  # Field name made lowercase.
     descripcion = models.CharField(max_length=45, unique=True, null=True)
 
     def __str__(self):

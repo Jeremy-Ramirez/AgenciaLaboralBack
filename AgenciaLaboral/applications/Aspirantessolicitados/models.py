@@ -6,7 +6,7 @@ from applications.Estado.models import Estado
 from applications.Aspirante.models import Aspirante
 
 class Aspirantessolicitados(models.Model):
-    idaspirantessolicitados = models.IntegerField(db_column='idAspirantesSolicitados', primary_key=True)  # Field name made lowercase.
+    idaspirantessolicitados = models.AutoField(db_column='idAspirantesSolicitados', primary_key=True)  # Field name made lowercase.
     fechaaceptacion = models.DateTimeField(db_column='fechaAceptacion', blank=True, null=True)  # Field name made lowercase.
     solicitud_idsolicitud = models.ForeignKey(Solicitud, models.DO_NOTHING, db_column='Solicitud_idSolicitud')  # Field name made lowercase.
     estado_idestado = models.ForeignKey(Estado, models.DO_NOTHING, db_column='Estado_idEstado')  # Field name made lowercase.
