@@ -39,6 +39,7 @@ urlpatterns = [
     path('api/',include('applications.Aspirante.urls')),
     path('api/',include('applications.Profesiones.urls')),
     path('api/',include('applications.Estadocivil.urls')),
+    path('api/',include('applications.Aspirantessolicitados.urls')),
 
 ]
 
