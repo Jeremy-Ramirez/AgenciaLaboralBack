@@ -5,7 +5,7 @@ from applications.Usuario.models import Usuario
 from applications.CategoriaDocumento.models import CategoriaDocumento
 
 def nameFile(instance, filename):
-    return '/'.join(['archivosAspirantes', str(instance.aspirante_idaspirante.idaspirante.profesiones_idprofesiones.profesion), filename])
+    return '/'.join(['archivosAspirantes', str(instance.categoriaDocumento_idcategoriadocumento.descripcion), filename])
 # Create your models here.
 
 
