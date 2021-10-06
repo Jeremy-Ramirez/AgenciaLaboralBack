@@ -40,6 +40,8 @@ urlpatterns = [
     path('api/',include('applications.Profesiones.urls')),
     path('api/',include('applications.Estadocivil.urls')),
     path('api/',include('applications.Aspirantessolicitados.urls')),
+    path('api/',include('applications.ArchivosAspirante.urls')),
+    path('api/',include('applications.CategoriaDocumento.urls')),
 
 ]
 

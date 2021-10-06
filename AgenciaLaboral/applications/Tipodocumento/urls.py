@@ -1,4 +1,4 @@
-from applications.Genero.serializers import GeneroSerializer
+from applications.Tipodocumento.serializers import TipodocumentoSerializer
 from django.urls import path, include
 from . import views
 from .views import *

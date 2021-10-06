@@ -26,8 +26,10 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'applications.Actividadeconomica',
+    'applications.ArchivosAspirante',
     'applications.Aspirante',
     'applications.Aspirantessolicitados',
+    'applications.CategoriaDocumento',
     'applications.Ciudad',
     'applications.Detallefactura',
     'applications.Empresa',
