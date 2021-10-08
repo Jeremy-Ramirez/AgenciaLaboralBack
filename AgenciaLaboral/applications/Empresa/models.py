@@ -8,7 +8,6 @@ from applications.Tipoempresa.models import Tipoempresa
 from applications.Ciudad.models import Ciudad
 from applications.Provincia.models import Provincia
 
-
 class Empresa(models.Model):
     idempresa = models.AutoField(db_column='idEmpresa', primary_key=True)  # Field name made lowercase.
     ruc_cedula = models.CharField(db_column='ruc/cedula', max_length=45, unique=True, null=True)  # Field renamed to remove unsuitable characters.
@@ -43,6 +42,9 @@ class Empresa(models.Model):
             return empresa
         except:
             return None
+    
+    USERNAME_FIELD='correoelectronico'
+    REQUIRED_FIELDS=[]
 
     class Meta:
         verbose_name='Empresa'

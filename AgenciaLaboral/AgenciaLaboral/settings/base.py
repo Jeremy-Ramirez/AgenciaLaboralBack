@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-#3i6_0&6c-_bz!kb(z0*%14@7-4v=1))wdik-sn$kzf5qo6nc('
 
-
+#AUTH_USER_MODEL='Usuario.Usuario'
 
 # Application definition
 
@@ -53,11 +53,15 @@ INSTALLED_APPS = [
     'applications.Tipopersona',
     'applications.Tiposolicitud',
     'applications.Usuario',
-
     'rest_framework'
 
-
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
