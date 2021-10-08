@@ -12,6 +12,21 @@ class UsuarioSerializer(serializers.ModelSerializer):
 
     def create(self,validated_data):
         return Usuario.objects.create(**validated_data)
+        '''fields=('idusuario', 'nombreusuario', 'correo', 'contrasenia')
+        extra_kwargs={
+            'contrasenia': {'write_only': True}
+        }'''
+
+    '''#hash la password
+    def create(self,validated_data):
+        contrasenia=validated_data.pop('contrasenia',None)
+        #instance= self.Meta.model(**validated_data)
+        instance=Usuario.objects.create(**validated_data)
+        if contrasenia is not None:
+            instance.set_password(contrasenia)
+        instance.save()
+        return instance
+        Usuario.objects.create(**validated_data)'''
 
   
 

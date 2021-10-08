@@ -25,6 +25,9 @@ class Usuario(models.Model):
     provincia_idprovincia = models.ForeignKey(Provincia, models.DO_NOTHING, db_column='Provincia_idProvincia', null=True)  # Field name made lowercase.
     ciudad_idciudad = models.ForeignKey(Ciudad, models.DO_NOTHING, db_column='Ciudad_idCiudad', null=True)  # Field name made lowercase.
 
+    USERNAME_FIELD='correo'
+    REQUIRED_FIELDS=[]
+
     def __str__(self):
         txt = " No.documento: {0} / Nombres: {1} {2} / Correo: {3} / Teléfono: {4} / Dirección: {5}"
         return txt.format(self.nodocumento , self.nombre , self.apellido , self.correo , self.telefono, self.direccion) 
