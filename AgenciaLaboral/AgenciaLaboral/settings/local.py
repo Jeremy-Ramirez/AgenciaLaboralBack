@@ -14,7 +14,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'agenciadb',
         'USER':'root',
-        'PASSWORD':'Bakugo_23y24'
+        'PASSWORD':'admin'
     }
 }
 
