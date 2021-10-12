@@ -3,15 +3,31 @@ from rest_framework import serializers
 #from django.contrib.auth.models import Usuario
 from .models import Usuario
 from rest_framework.views import APIView
+from django.contrib.auth.hashers import make_password
+#from rest_framework.generics import CreateAPIView
+from passlib.hash import pbkdf2_sha256
 
 class UsuarioSerializer(serializers.ModelSerializer):
 
     class Meta:
         model=Usuario
         fields='__all__'
-
+        extra_kwargs = {
+            'password': {'write_only': True}
+        }
+        
     def create(self,validated_data):
-        return Usuario.objects.create(**validated_data)
+        '''instance = Usuario.objects.create(**validated_data)
+        instance.contrasenia=pbkdf2_sha256.hash(validated_data['contrasenia'])
+        instance.save()
+        return instance'''
+        password = validated_data.pop('password', None)
+        instance = self.Meta.model(**validated_data)
+        if password is not None:
+            instance.set_password(password)
+        instance.save()
+        return instance
+        #return Usuario.objects.create(**validated_data)
         '''fields=('idusuario', 'nombreusuario', 'correo', 'contrasenia')
         extra_kwargs={
             'contrasenia': {'write_only': True}

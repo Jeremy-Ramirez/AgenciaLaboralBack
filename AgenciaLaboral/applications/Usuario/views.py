@@ -8,8 +8,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.generics import get_object_or_404
 from rest_framework.exceptions import AuthenticationFailed
-
-
+from passlib.hash import pbkdf2_sha256
 import jwt, datetime
 # Create your views here.
 
@@ -46,15 +45,18 @@ class LoginView(APIView):
 
     def post(self,request):
         correo= request.data['correo']
-        contrasenia = request.data['contrasenia']
+        password = request.data['password']
 
         user= Usuario.objects.filter(correo=correo).first()
-        contra= Usuario.objects.filter(contrasenia=contrasenia).first()
+        #contra= Usuario.objects.filter(contrasenia=contrasenia).first()
+        #contra=pbkdf2_sha256.hash(Usuario.objects.filter(contrasenia=contrasenia).first())
         if user is None:
             raise AuthenticationFailed('User not found!')
             #pa verificar desde el hash
-        if contra is None:
-            raise AuthenticationFailed('incorrect password')
+        #if contra is None:
+        #    raise AuthenticationFailed('incorrect password')
+        if not user.check_password(password):
+            raise AuthenticationFailed('Incorrect password!')
 
 
 
@@ -79,12 +81,6 @@ class LoginView(APIView):
         }
         return response
 
-        
-'''
-        return Response({
-            'jwt': token
-        })
-'''
 
 class UsuarioView(APIView):
     
