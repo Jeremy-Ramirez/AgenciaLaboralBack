@@ -68,7 +68,8 @@ INSTALLED_APPS = [
     'applications.Tipopersona',
     'applications.Tiposolicitud',
     'applications.Usuario',
-    'rest_framework'
+    'rest_framework',
+    'home'
 
 ]
 
