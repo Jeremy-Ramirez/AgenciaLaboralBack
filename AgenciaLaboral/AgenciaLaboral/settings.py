@@ -120,9 +120,10 @@ WSGI_APPLICATION = 'AgenciaLaboral.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'agenciadb',
-        'USER':'root',
-        'PASSWORD':'Bakugo_23y24'
+        'NAME': 'AgenciaLaboralPr$agenciadb',
+        'USER':'AgenciaLaboralPr',
+        'PASSWORD':'admin123',
+        'HOST':'AgenciaLaboralProyecto.mysql.pythonanywhere-services.com'
     }
 }
 
