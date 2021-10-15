@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -25,10 +25,11 @@ SECRET_KEY = 'django-insecure-#3i6_0&6c-_bz!kb(z0*%14@7-4v=1))wdik-sn$kzf5qo6nc(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['agencialaboralproyecto.pythonanywhere.com']
 
 
 # Application definition
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,11 +38,51 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+
+    'applications.Actividadeconomica',
+    'applications.ArchivosAspirante',
+    'applications.Aspirante',
+    'applications.Aspirantessolicitados',
+    'applications.CategoriaDocumento',
+    'applications.Ciudad',
+    'applications.Detallefactura',
+    'applications.Empresa',
+    'applications.Estado',
+    'applications.Estadocivil',
+    'applications.Factura',
+    'applications.Formapago',
+    'applications.Genero',
+    'applications.Paquetepago',
+    'applications.Profesiones',
+    'applications.Provincia',
+    'applications.Ramaactividad',
+    'applications.Representanteempresa',
+    'applications.Rol',
+    'applications.Sector',
+    'applications.Solicitud',
+    'applications.Sugerencia',
+    'applications.TarjetaEmpresa',
+    'applications.Tipodocumento',
+    'applications.Tipoempresa',
+    'applications.Tipopersona',
+    'applications.Tiposolicitud',
+    'applications.Usuario',
+    'rest_framework'
+
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -75,11 +116,13 @@ WSGI_APPLICATION = 'AgenciaLaboral.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'AgenciaLaboralPr$agenciadb',
+        'USER':'AgenciaLaboralPr',
+        'PASSWORD':'admin123',
+        'HOST':'AgenciaLaboralProyecto.mysql.pythonanywhere-services.com'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -103,7 +146,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-pe'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -120,9 +163,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/files/'
-MEDIA_ROOT = BASE_DIR.child('files')
+#MEDIA_ROOT = BASE_DIR.child('files')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+
+AUTH_USER_MODEL = "Usuario.Usuario"
