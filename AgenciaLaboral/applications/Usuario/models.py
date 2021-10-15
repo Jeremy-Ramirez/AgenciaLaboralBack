@@ -6,12 +6,11 @@ from applications.Tipodocumento.models import Tipodocumento
 from applications.Estadocivil.models import Estadocivil
 from applications.Provincia.models import Provincia
 from applications.Estado.models import Estado
-from django.contrib.auth.models import AbstractUser
 
-class Usuario(AbstractUser):
+class Usuario(models.Model):
     idusuario = models.AutoField(db_column='idusuario', primary_key=True)  # Field name made lowercase.
     nombreusuario = models.CharField(db_column='nombreUsuario', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    password = models.CharField(max_length=150, blank=True, null=True)
+    contrasenia = models.CharField(max_length=150, blank=True, null=True)
     tipodocumento_idtipodocumento = models.ForeignKey(Tipodocumento, models.DO_NOTHING, db_column='tipodocumento_idtipodocumento',null=True)  # Field name made lowercase.
     nodocumento = models.CharField(max_length=45, blank=True, null=True)
     nombre = models.CharField(max_length=45, blank=True, null=True)
@@ -25,14 +24,7 @@ class Usuario(AbstractUser):
     estadocivil_idestadocivil = models.ForeignKey(Estadocivil, models.DO_NOTHING, db_column='EstadoCivil_idEstadoCivil', null=True)  # Field name made lowercase.
     provincia_idprovincia = models.ForeignKey(Provincia, models.DO_NOTHING, db_column='Provincia_idProvincia', null=True)  # Field name made lowercase.
     ciudad_idciudad = models.ForeignKey(Ciudad, models.DO_NOTHING, db_column='Ciudad_idCiudad', null=True)  # Field name made lowercase.
-    username = None
-    first_name=None
-    last_name=None
-    is_superuser=None
-    email=None
-    is_staff=None
-    is_active=None
-    is_superuser=None
+
 
     def __str__(self):
         txt = " No.documento: {0} / Nombres: {1} {2} / Correo: {3} / Teléfono: {4} / Dirección: {5}"

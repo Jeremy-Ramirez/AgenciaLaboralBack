@@ -21,13 +21,8 @@ class UsuarioSerializer(serializers.ModelSerializer):
         instance.contrasenia=pbkdf2_sha256.hash(validated_data['contrasenia'])
         instance.save()
         return instance'''
-        password = validated_data.pop('password', None)
-        instance = self.Meta.model(**validated_data)
-        if password is not None:
-            instance.set_password(password)
-        instance.save()
-        return instance
-        #return Usuario.objects.create(**validated_data)
+        
+        return Usuario.objects.create(**validated_data)
         '''fields=('idusuario', 'nombreusuario', 'correo', 'contrasenia')
         extra_kwargs={
             'contrasenia': {'write_only': True}

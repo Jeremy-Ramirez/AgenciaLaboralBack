@@ -45,18 +45,17 @@ class LoginView(APIView):
 
     def post(self,request):
         correo= request.data['correo']
-        password = request.data['password']
+        contrasenia = request.data['contrasenia']
 
         user= Usuario.objects.filter(correo=correo).first()
-        #contra= Usuario.objects.filter(contrasenia=contrasenia).first()
+        contra= Usuario.objects.filter(contrasenia=contrasenia).first()
         #contra=pbkdf2_sha256.hash(Usuario.objects.filter(contrasenia=contrasenia).first())
         if user is None:
             raise AuthenticationFailed('User not found!')
             #pa verificar desde el hash
-        #if contra is None:
-        #    raise AuthenticationFailed('incorrect password')
-        if not user.check_password(password):
-            raise AuthenticationFailed('Incorrect password!')
+        if contra is None:
+            raise AuthenticationFailed('incorrect password')
+        
 
 
 
