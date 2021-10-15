@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#3i6_0&6c-_bz!kb(z0*%14@7-4v=1))wdik-sn$kzf5qo6nc(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['agencialaboralproyecto.pythonanywhere.com']
+ALLOWED_HOSTS = ['agencialaboralproyecto.pythonanywhere.com','localhost']
 
 
 # Application definition
@@ -114,13 +114,14 @@ WSGI_APPLICATION = 'AgenciaLaboral.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# Database
+# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'AgenciaLaboralPr$agenciadb',
-        'USER':'AgenciaLaboralPr',
-        'PASSWORD':'admin123',
-        'HOST':'AgenciaLaboralProyecto.mysql.pythonanywhere-services.com'
+        'NAME': 'agenciadb',
+        'USER':'root',
+        'PASSWORD':'Bakugo_23y24'
     }
 }
 
@@ -173,4 +174,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-AUTH_USER_MODEL = "Usuario.Usuario"
