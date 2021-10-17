@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'django-insecure-#3i6_0&6c-_bz!kb(z0*%14@7-4v=1))wdik-sn$kzf5qo6nc('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['agencialaboralproyecto.pythonanywhere.com','localhost']
+ALLOWED_HOSTS = ['agencialaboralproyecto.pythonanywhere.com','localhost','pythonanywhere.com','127.0.0.1']
 
 
 # Application definition
@@ -162,12 +162,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
-
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/files/'
 #MEDIA_ROOT = BASE_DIR.child('files')
-
+STATIC_ROOT = '/home/AgenciaLaboralProyecto/AgenciaLaboralBack/AgenciaLaboral/static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -175,4 +175,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
+
+JWT_AUTH = {
+    # Authorization:Token xxx
+    'JWT_AUTH_HEADER_PREFIX': 'Token',
+}
 
