@@ -5,7 +5,7 @@ class EmpresaSerializer(serializers.ModelSerializer):
     class Meta:
         model=Empresa
         fields= '__all__'
-        depth = 1
+        #depth = 1
     
     def create(self,validated_data):
             return Empresa.objects.create(**validated_data)
