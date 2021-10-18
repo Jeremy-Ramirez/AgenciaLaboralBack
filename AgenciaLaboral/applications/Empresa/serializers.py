@@ -1,15 +1,15 @@
 from rest_framework import serializers
-from .models import Empresa 
+from .models import Empresa
 
 class EmpresaSerializer(serializers.ModelSerializer):
     class Meta:
         model=Empresa
         fields= '__all__'
-        #depth = 1
-    
+        depth = 1
+
     def create(self,validated_data):
             return Empresa.objects.create(**validated_data)
-     
+
     def update(self, instance, validated_data):
         instance.idempresa = validated_data.get('idempresa', instance.idempresa)
         instance.ruc_cedula = validated_data.get('ruc_cedula', instance.ruc_cedula)
