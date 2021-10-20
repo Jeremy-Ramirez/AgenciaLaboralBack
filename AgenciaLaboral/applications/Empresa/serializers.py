@@ -5,16 +5,16 @@ class EmpresaSerializer(serializers.ModelSerializer):
     class Meta:
         model=Empresa
         fields= '__all__'
-        depth = 1
+        #depth = 1
 
-    def __init__(self, *args, **kwargs):
+    '''def __init__(self, *args, **kwargs):
         super(EmpresaSerializer, self).__init__(*args, **kwargs)
         request = self.context.get('request')
         if request and request.method=='POST':
             self.Meta.depth = 0
         else:
             self.Meta.depth = 1
-
+    '''
     def create(self,validated_data):
             return Empresa.objects.create(**validated_data)
 
