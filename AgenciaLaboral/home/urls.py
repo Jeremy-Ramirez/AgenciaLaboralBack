@@ -26,7 +26,7 @@ urlpatterns = [
     path('empresa/sesionEmpresa/informacionEmpresa', views.index),
     path('empresa/sesionEmpresa/registroRepresentante', views.index),
     path('empresa/sesionEmpresa/perfilEmpresa', views.index),
-    #path('empresa/sesionEmpresa/sugerencias', views.index),
+    path('empresa/sesionEmpresa/sugerencias', views.index),
 
 
     path('administrador/sesionAdministrador', views.index),
