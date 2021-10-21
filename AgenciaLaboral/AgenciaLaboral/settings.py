@@ -166,7 +166,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/files/'
-MEDIA_ROOT = '/home/AgenciaLaboralProyecto/videos/'
+MEDIA_ROOT = '/home/AgenciaLaboralProyecto/'
 STATIC_ROOT = '/home/AgenciaLaboralProyecto/AgenciaLaboralBack/AgenciaLaboral/static/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
