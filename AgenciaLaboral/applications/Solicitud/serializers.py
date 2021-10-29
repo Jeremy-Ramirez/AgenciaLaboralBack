@@ -6,9 +6,9 @@ class SolicitudSerializer(serializers.ModelSerializer):
     class Meta:
         model=Solicitud
         fields='__all__'
-        depth = 2
-    
-    
+        #depth = 2
+
+
     def create(self,validated_data):
             return Solicitud.objects.create(**validated_data)
 
@@ -35,6 +35,6 @@ class SolicitudSerializer(serializers.ModelSerializer):
         instance.disponibilidad_cambioresidencia = validated_data.get('disponibilidad_cambioresidencia', instance.ciudad_idciudad)
         instance.licencia = validated_data.get('licencia', instance.ciudad_idciudad)
         instance.idiomas = validated_data.get('idiomas', instance.ciudad_idciudad)
-        
+
         instance.save()
         return instance
