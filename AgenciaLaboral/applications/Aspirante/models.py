@@ -15,7 +15,7 @@ class Aspirante(models.Model):
     videopresentacion = models.FileField(blank=True, upload_to=nameFile, null=True)  # Field name made lowercase.
     aniosexperiencia = models.IntegerField(db_column='aniosExperiencia', blank=True, null=True)  # Field name made lowercase.
     fechanacimiento = models.DateField(db_column='fechaNacimiento', blank=True, null=True)  # Field name made lowercase.
-    posibilidadviajar = models.IntegerField(db_column='posibilidadViajar', blank=True, null=True)  # Field name made lowercase.
+    posibilidadviajar = models.CharField(db_column='posibilidadViajar', blank=True, null=True)  # Field name made lowercase.
     profesiones_idprofesiones = models.ForeignKey(Profesiones, models.DO_NOTHING, db_column='Profesiones_idProfesiones')  # Field name made lowercase.
     usuario_idusuario = models.ForeignKey(Usuario, models.DO_NOTHING, db_column='usuario_idusuario',null=True) # Field name made lowercase.
     
