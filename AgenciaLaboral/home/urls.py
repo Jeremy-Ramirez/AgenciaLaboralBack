@@ -1,4 +1,5 @@
 from django.urls import path
+from django.conf.urls import url
 from . import views
 urlpatterns = [
     path('', views.index),
@@ -32,6 +33,7 @@ urlpatterns = [
     path('administrador/sesionAdministrador', views.index),
     path('administrador/sesionAdministrador/aspirantesNuevos', views.index),
     path('administrador/sesionAdministrador/aspirantesAceptados', views.index),
+    path(r'^administrador/sesionAdministrador/perfilAspirante/\d+/$', views.index, name='perfil'),
     path('administrador/sesionAdministrador/empresas', views.index),
     path('administrador/sesionAdministrador/sugerencias', views.index),
 
