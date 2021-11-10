@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'applications.Sector',
     'applications.Solicitud',
     'applications.Sugerencia',
+    'applications.SugerenciaEmpresa',
     'applications.TarjetaEmpresa',
     'applications.Tipodocumento',
     'applications.Tipoempresa',
