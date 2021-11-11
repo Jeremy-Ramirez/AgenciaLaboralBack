@@ -13,7 +13,7 @@ from rest_framework.generics import get_object_or_404
 
 class ArchivosAspiranteApiView(APIView):
   
-  def post(self, request):
+    def post(self, request):
       #if request.method == 'POST':
         archivosAspirantes_serializer = ArchivosAspirantesSerializer(data=request.data)
         if archivosAspirantes_serializer.is_valid():
@@ -22,7 +22,7 @@ class ArchivosAspiranteApiView(APIView):
         return Response(archivosAspirantes_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-  def get(self,request, pk=None, format=None):
+    def get(self,request, pk=None, format=None):
         if pk:
             archivoAspirante= get_object_or_404(ArchivosAspirante.objects.all(),pk=pk)
             archivosAspirantes_serializer = ArchivosAspirantesSerializer(archivoAspirante, many=False)
@@ -31,10 +31,16 @@ class ArchivosAspiranteApiView(APIView):
         archivosAspirantes_serializer=ArchivosAspirantesSerializer(archivosAspirantes,many=True)
         return Response(archivosAspirantes_serializer.data)
 
-  def put(self, request, pk):
-        usuario = get_object_or_404(ArchivosAspirante.objects.all(),pk=pk)
-        archivosAspirantes_serializer = ArchivosAspirantesSerializer(usuario, data=request.data, many=False)
+    def put(self, request, pk):
+        archivoAspirante = get_object_or_404(ArchivosAspirante.objects.all(),pk=pk)
+        archivosAspirantes_serializer = ArchivosAspirantesSerializer(archivoAspirante, data=request.data, many=False)
         if archivosAspirantes_serializer.is_valid(raise_exception=True):
             archivosAspirantes_serializer.save()
             return Response(archivosAspirantes_serializer.data)
         return Response(archivosAspirantes_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+    def delete(self, request, pk):
+        archivoAspirante = get_object_or_404(ArchivosAspirante.objects.all(), pk=pk)
+        archivoAspirante.delete()
+        return Response({"message": "El archivo con id `{}` ha sido eliminado.".format(pk)},status=204)
