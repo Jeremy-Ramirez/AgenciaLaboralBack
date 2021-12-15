@@ -34,9 +34,14 @@ class FormacionProfesionalApiView(APIView):
         return Response(formacionProfesional_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
   def put(self, request, pk):
-        usuario = get_object_or_404(FormacionProfesional.objects.all(),pk=pk)
-        formacionProfesional_serializer = FormacionProfesionalSerializer(usuario, data=request.data, many=False)
+        formacionProfesional = get_object_or_404(FormacionProfesional.objects.all(),pk=pk)
+        formacionProfesional_serializer = FormacionProfesionalSerializer(formacionProfesional, data=request.data, many=False)
         if formacionProfesional_serializer.is_valid(raise_exception=True):
             formacionProfesional_serializer.save()
             return Response(formacionProfesional_serializer.data)
         return Response(formacionProfesional_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+  def delete(self, request, pk):
+        formacionProfesional = get_object_or_404(FormacionProfesional.objects.all(), pk=pk)
+        formacionProfesional.delete()
+        return Response({"message": "La formación profesional con el id `{}` ha sido eliminada.".format(pk)},status=204)

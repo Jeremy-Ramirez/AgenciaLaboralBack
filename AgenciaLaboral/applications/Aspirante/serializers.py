@@ -27,6 +27,8 @@ class AspiranteSerializer(serializers.ModelSerializer):
         instance.profesiones_idprofesiones = validated_data.get('profesiones_idprofesiones',instance.profesiones_idprofesiones)
         instance.idiomas = validated_data.get('idiomas',instance.idiomas)
         instance.usuario_idusuario = validated_data.get('usuario_idusuario',instance.usuario_idusuario)
+        instance.estadoaspirantes_idestadoaspirantes = validated_data.get('estadoaspirantes_idestadoaspirantes',instance.estadoaspirantes_idestadoaspirantes)
+
         
         instance.save()
         return instance

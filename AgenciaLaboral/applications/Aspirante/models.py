@@ -3,6 +3,7 @@ from django.db import models
 from applications.Profesiones.models import Profesiones
 from applications.Usuario.models import Usuario
 from applications.NivelEstudios.models import NivelEstudios
+from applications.EstadoAspirantes.models import EstadoAspirantes
 
 def nameFile(instance, filename):
     return '/'.join(['videos', str(instance.profesiones_idprofesiones.profesion), filename])
@@ -19,6 +20,7 @@ class Aspirante(models.Model):
     posibilidadcambioresidencia = models.CharField(max_length=5,db_column='posibilidadCambioResidencia', blank=True, null=True)  # Field name made lowercase.
     profesiones_idprofesiones = models.ForeignKey(Profesiones, models.DO_NOTHING, db_column='Profesiones_idProfesiones', null=True)  # Field name made lowercase.
     idiomas = models.CharField(max_length=500,db_column='idiomas', blank=True, null=True)  # Field name made lowercase.
+    estadoaspirantes_idestadoaspirantes = models.ForeignKey(EstadoAspirantes, models.DO_NOTHING, db_column='estadoaspirantes_idestadoaspirantes',null=True) # Field name made lowercase.
     usuario_idusuario = models.ForeignKey(Usuario, models.DO_NOTHING, db_column='usuario_idusuario',null=True) # Field name made lowercase.
     
     def __str__(self):
