@@ -66,6 +66,9 @@ MIT
 @angular/router
 MIT
 
+angular-ng-autocomplete
+MIT
+
 jwt-decode
 MIT
 The MIT License (MIT)
