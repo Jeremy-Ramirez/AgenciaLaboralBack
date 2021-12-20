@@ -38,6 +38,7 @@ urlpatterns = [
     path('api/',include('applications.Sugerencia.urls')),
     path('api/',include('applications.SugerenciaEmpresa.urls')),
     path('api/',include('applications.Aspirante.urls')),
+    path('api/',include('applications.Paquetepago.urls')),
     path('api/',include('applications.Profesiones.urls')),
     path('api/',include('applications.Estadocivil.urls')),
     path('api/',include('applications.Aspirantessolicitados.urls')),
