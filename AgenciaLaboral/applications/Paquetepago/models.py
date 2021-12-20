@@ -8,8 +8,8 @@ from applications.Usuario.models import Usuario
 class Paquetepago(models.Model):
     idpaquetepago = models.AutoField(db_column='idPaquetePago', primary_key=True)  # Field name made lowercase.
     nombrepaquete = models.CharField(db_column='nombrePaquete', max_length=45, blank=True, null=True)  # Field name made lowercase.
-    descripcion = models.CharField(max_length=45, blank=True, null=True)
-    precio = models.FloatField(blank=True, null=True)
+    descripcion = models.CharField(max_length=1000, blank=True, null=True)
+    precio = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     duracion = models.DurationField(blank=True, null=True)
     fecharegistro = models.DateField(db_column='fechaRegistro', blank=True, null=True)  # Field name made lowercase.
     fechacaducidad = models.DateField(db_column='fechaCaducidad', blank=True, null=True)  # Field name made lowercase.
