@@ -2,7 +2,7 @@ from django.db import models
 
 from applications.Estado.models import Estado
 from applications.Usuario.models import Usuario
-
+from applications.DuracionPaquetes.models import DuracionPaquetes
 # Create your models here.
 
 class Paquetepago(models.Model):
