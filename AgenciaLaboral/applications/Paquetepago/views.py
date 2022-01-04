@@ -39,6 +39,15 @@ class PaquetepagoApiView(APIView):
             return Response(paquetepago_serializer.data)
         return Response(paquetepago_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+  def patch(self, request, pk):
+        paquetepago = get_object_or_404(Paquetepago.objects.all(),pk=pk)
+        paquetepago_serializer = PaquetepagoSerializer(paquetepago, data=request.data, partial=True) # set partial=True to update a data partially
+        if paquetepago_serializer.is_valid():
+            paquetepago_serializer.save()
+            return Response(paquetepago_serializer.data)
+        return Response(paquetepago_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
   def delete(self, request, pk):
         paquetepago = get_object_or_404(Paquetepago.objects.all(), pk=pk)
         paquetepago.delete()

@@ -10,7 +10,7 @@ class Paquetepago(models.Model):
     nombrepaquete = models.CharField(db_column='nombrePaquete', max_length=45, blank=True, null=True)  # Field name made lowercase.
     descripcion = models.CharField(max_length=1000, blank=True, null=True)
     precio = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
-    duracion = models.DurationField(blank=True, null=True)
+    duracionpaquetes_idduracionpaquetes = models.ForeignKey(DuracionPaquetes, models.DO_NOTHING, db_column='DuracionPaquetes_idDuracionPaquetes',null=True)  # Field name made lowercase.
     fecharegistro = models.DateField(db_column='fechaRegistro', blank=True, null=True)  # Field name made lowercase.
     fechacaducidad = models.DateField(db_column='fechaCaducidad', blank=True, null=True)  # Field name made lowercase.
     usuario_idusuario = models.ForeignKey(Usuario, models.DO_NOTHING, db_column='Usuario_idUsuario')  # Field name made lowercase.
