@@ -48,6 +48,7 @@ urlpatterns = [
     path('api/',include('applications.NivelEstudios.urls')),
     path('api/',include('applications.FormacionProfesional.urls')),
     path('api/',include('applications.EstadoAspirantes.urls')),
+    path('api/',include('applications.EstadoAspiranteEmpresa.urls')),
     path('', include('home.urls'))
 
 ]
