@@ -54,6 +54,7 @@ urlpatterns = [
     path('representante/sesionRepresentante/showSolicitudes', views.index),
     path('representante/sesionRepresentante/solicitudesRepresentante', views.index),
     path('representante/sesionRepresentante/sugerencias', views.index),
+    path('representante/sesionRepresentante/consultarSolicitudes', views.index),
 
 
 ]
